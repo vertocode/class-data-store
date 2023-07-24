@@ -5,7 +5,7 @@ export class UseStore {
     currency: string = 'BRL'
     tax: number = 0
 
-    constructor(products: Product[]) {
+    constructor(products: Product[] = []) {
         this.products = products
 
         const tenant: string = process.env?.tenant || ''

@@ -7,6 +7,7 @@ describe('UseStore', () => {
         process.env.tenant = 'Brazil'
         process.env.state = 'Minas Gerais'
     })
+
     test('reversedProducts getter returns the products array reversed and not affects the origin products.', () => {
         const store = new UseStore(Products)
 
@@ -17,5 +18,12 @@ describe('UseStore', () => {
 
         // Check if the "store.products" is not affected by this getter.
         expect(store.products).toEqual(initialProducts)
+    })
+
+    test('we can get the currency and tax by tenant and state.', () => {
+        const store = new UseStore()
+
+        expect(store.currency).toEqual('BRL')
+        expect(store.tax).toEqual(87)
     })
 })
